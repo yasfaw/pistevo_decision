@@ -1,0 +1,104 @@
+tables:
+  patients:
+    columns:
+      patient_id:
+          type: "string"
+          desc:  "the patient’s identification number"
+      fname:
+          type: "string"
+          desc:  "first name"
+      lname:
+          type: "string"
+          desc:  "last name"
+      date_of_birth:
+          type: "date"
+          desc:  "birth date"
+      address:
+          type: "string"
+          desc:  "current address"
+      city:
+          type: "string"
+          desc:  "city"
+      state:
+          type: "string"
+          desc:  "state"
+      zipcode:
+          type: "string"
+          desc:  "zip code"
+      date_of_residence:
+          type: "string"
+          desc:  "starting date at this residence"
+      last_modified_date:
+          type: "date"
+          desc: "last time record was modified"
+    mask: ['fname','lname','address']
+  provider:
+    columns:
+      provider_id:
+        type: 'string'
+        desc:  'provider id'
+      fname:
+        type: 'string'
+        desc:  'first name'
+      lname:
+        type: 'string' 
+        desc: 'last name'
+      facility_name: 
+        type: 'string' 
+        desc: 'facility or practice name'
+      address:
+        type: 'string'
+        desc:  'street address'
+      city:
+        type: 'string'
+        desc:  'city'
+      state:
+        type: 'string'
+        desc: 'state'
+      zipcode:
+        type: 'string' 
+        desc: 'zipcode'
+      specialty_code:
+        type: 'string'
+        desc: 'provider specialty'
+        valid_vals: ['family_physician', 'orthopedist', 'heart_surgeon', 'physical_therapist']
+      start_date:
+        type: 'date'
+        desc: 'date started at facility'
+    mask: ['fname','lname','address']
+  claim:
+    columns:
+      claim_id:
+        type: 'string'
+        desc: 'claim number'
+      patient_id:
+        type: 'string'
+        desc: 'patient id'
+      provider_id:
+        type: 'string'
+        desc: 'provider id'
+      visit_type:
+        type: 'string'
+        desc:  'type of visit'
+        valid_vals: ['physical','routine','illness','surgery']
+      total_cost:
+        type: 'double' 
+        desc: 'cost of visit in dollars and cents (a value of 74.22 equals $74.22)'
+      coverage_type:
+        type:  'int'
+        desc:  'percentage of cost covered'
+        valid_vals: [100,50,0]
+      date_of_service:
+        type: 'date'
+        desc:  'service date'
+      claim_date:
+        type: 'date'
+        desc: 'start of claim'
+      billed:
+          type: 'double'
+          desc: 'if bill was sent to patient'
+      last_modified_date:
+        type: 'date'
+        desc: 'last time claim was update'
+    mask: []
+  

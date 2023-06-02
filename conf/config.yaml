@@ -1,0 +1,16 @@
+target_path: "s3a://pistevo-decision/target"
+target_schema: "billing"
+s3_bucket: "pistevo-decision"
+sources:
+  patients:
+    path: "s3a://pistevo-decision/source/patients"
+    merge_key: "patient_id"
+    cdc_key: 'last_modified_date'
+  provider:
+    path: "s3a://pistevo-decision/source/provider"
+    merge_key: "provider_id"
+    cdc_key: ''
+  claim:
+    path: "s3a://pistevo-decision/source/claim"
+    merge_key: "claim_id"
+    cdc_key: 'last_modified_date'
